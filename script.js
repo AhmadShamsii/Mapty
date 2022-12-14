@@ -115,8 +115,6 @@ class App {
 
     this.#map = L.map('map').setView(coords, this.#mapZoomLevel);
 
-    var L = window.L;
-
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
