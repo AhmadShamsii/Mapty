@@ -113,14 +113,21 @@ class App {
     const coords = [latitude, longitude];
     console.log('final');
 
-    this.#map = L.map('map').setView(coords, this.#mapZoomLevel);
+    var map = L.map('map').setView([51.505, -0.09], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
       attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(this.#map);
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
 
-    L.marker(coords)
+    // this.#map = L.map('map').setView(coords, this.#mapZoomLevel);
+
+    // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    // }).addTo(this.#map);
+
+    attribution: L.marker(coords)
       .addTo(map)
       .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
       .openPopup();
