@@ -119,8 +119,7 @@ class App {
         attribution:
           '&copy; <a href="https://carto.com/">carto.com</a> contributors',
       }
-    );
-    mainLayer.addTo(this.#map);
+    ).addTo(this.#map);
 
     // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     //   maxZoom: 19,
