@@ -108,17 +108,24 @@ class App {
   _loadMap(position) {
     const { latitude } = position.coords;
     const { longitude } = position.coords;
-    console.log(`https://www.google.pt/maps/@${latitude},${longitude}`);
 
     const coords = [latitude, longitude];
-    console.log('final');
 
     this.#map = L.map('map').setView(coords, this.#mapZoomLevel);
 
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    }).addTo(this.#map);
+    L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',
+      {
+        attribution:
+          '&copy; <a href="https://carto.com/">carto.com</a> contributors',
+      }
+    );
+    mainLayer.addTo(this.#map);
+
+    // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //   maxZoom: 19,
+    //   attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    // }).addTo(this.#map);
 
     // Handling clicks on map
     this.#map.on('click', this._showForm.bind(this));
@@ -327,5 +334,3 @@ class App {
 }
 
 const app = new App();
-
-console.log('should work');
