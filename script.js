@@ -328,6 +328,7 @@ class App {
     localStorage.removeItem('workouts');
     location.reload();
   }
+  reset()
 }
 
 const app = new App();
